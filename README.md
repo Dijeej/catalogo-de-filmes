@@ -1,2 +1,2 @@
-# catalogo-de-filmes
-Estudo de nodeJS
+# Catalogo de Filmes
+Estudo de React e TypeScript
