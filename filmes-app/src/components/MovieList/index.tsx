@@ -6,28 +6,32 @@ import { useEffect, useState, useCallback } from 'react';
 import { MovieType } from '@/types/movieType';
 import { PulseLoader } from 'react-spinners';
 import MovieCard from '../MovieCard';
-// import ReactLoading from 'react-loading';
 
-export default function MovieList() {
+export default function MovieList({ genreId }: { genreId?: number }) {
     const [movies, setMovies] = useState<MovieType[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>();
     
     const getMovies = useCallback(async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get('https://api.themoviedb.org/3/discover/movie', {
-                params: {
-                    api_key: '2ad935aa5c1c020c4c3ba741aa80d09d',
-                    language: 'pt-BR'
-                }
-            });
+            const params: Record<string, string | number | undefined> = {
+                api_key: '2ad935aa5c1c020c4c3ba741aa80d09d',
+                language: 'pt-BR',
+            };
+
+            if (genreId) {
+                params.with_genres = genreId;
+            }
+
+            const response = await axios.get('https://api.themoviedb.org/3/discover/movie', { params });
+            
             setMovies(response.data.results);
         }catch(error) {
             console.error("Erro ao buscar filmes:", error);
         } finally {
             setIsLoading(false);
         }
-    }, []);
+    }, [genreId]);
 
     useEffect(() => {
         getMovies();
