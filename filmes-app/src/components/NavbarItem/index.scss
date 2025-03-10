@@ -1,0 +1,15 @@
+.navbar-item {
+    .navbar-link{
+        text-decoration: none;
+        font-size: 1rem;
+        color: white;
+        font-weight: 700;
+        padding: .25rem 0rem;
+        transition: color 0.3s;
+
+        &.active, &:hover {
+            color: rgb(159, 212, 255);
+            border-bottom: 0.15rem solid rgb(20, 167, 155);
+        }
+    }
+}
