@@ -1,0 +1,22 @@
+.icon {
+    position: relative;
+    display: inline-block;
+    font-size: 5rem;
+    padding: 3rem;
+    color: rgb(20, 167, 155);
+    vertical-align: middle;
+
+    .icon-film {
+        position: absolute;
+        top: 0;
+        left: 0; 
+    }
+
+    .icon-cat {
+        position: absolute; 
+        font-size: 3rem;
+        top: 2.5rem;
+        left: 0;
+        z-index: 1; 
+    }
+}
