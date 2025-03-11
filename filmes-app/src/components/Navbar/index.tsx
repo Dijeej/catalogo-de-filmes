@@ -14,15 +14,15 @@ import { useState } from 'react';
 
 export default function Navbar() {
     const navbarItens: NavbarItemType[] = Object.entries(genreDictionary).map(([id, { pt, en }]) => ({
-        id: parseInt(id), // Convertendo o id de string para número
+        id: parseInt(id),
         namePt: pt,
         nameEn: en,
     }));
     const pathname = usePathname();
-    const [isOpen, setIsOpen] = useState(false); // Controlando se o menu está aberto ou fechado
+    const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
-        setIsOpen((prev) => !prev); // Alterna o estado do menu
+        setIsOpen((prev) => !prev);
     };
     return (
         <nav className="navbar">
